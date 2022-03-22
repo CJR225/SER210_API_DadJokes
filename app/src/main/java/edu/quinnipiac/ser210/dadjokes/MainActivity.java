@@ -40,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
 
     private String LOG_TAG = MainActivity.class.getSimpleName();
     jokeHandler jkHandler = new jokeHandler();
-
     ImageView mainbkgrnd;
 
     private ShareActionProvider shareActionProvider;
@@ -60,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
     public void onClick(View view) {
 
         Intent intent = new Intent(this, JokesActivity.class);
-        intent.putExtra("holder", url1);
+
 
         new FetchJoke().execute();
     }
@@ -113,13 +112,13 @@ public class MainActivity extends AppCompatActivity {
 
             HttpURLConnection urlConnection = null;
             BufferedReader reader = null;
-            ArrayList<String> joke = null;
+            ArrayList<String> joke;
 
             try {
                 URL url = new URL(url1);
                 urlConnection = (HttpURLConnection) url.openConnection();
                 urlConnection.setRequestMethod("GET");
-                urlConnection.setRequestProperty("X-RapidAPI-Key", "9cc181177emsh18889f38a315853p1ff686jsn7ec323484f9f");
+                urlConnection.setRequestProperty("X-RapidAPI-Key", "72e550e293msh0b4974c37ccabdap1e4627jsnabebc1c35c3d");
                 urlConnection.connect();
 
                 InputStream in = urlConnection.getInputStream();
